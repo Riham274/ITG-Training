@@ -2,17 +2,15 @@
 //var companies = {"hardware": ["company1", "globalTech", "company2"], "software": ["Asal", "Infinite Tiers", "Exhausted"], "networking": ["company3", "company4", "company5"]};
 
 var companies = {
+  "hardware": ["company1", "globalTech", "company2"], 
+  "software": ["Asal", "Infinite Tiers", "Exhausted"], 
+  "networking": ["company3", "company4", "company5"]
   
 };
 
-let bestCompany;
-console.log(companies[0])
 
-for (var key in companies) {
-  if (companies[key].includes("InfiniteTiers")) {
-    bestCompany = "InfiniteTiers";
-    break;
-  }
-}
+
+let bestCompany = Object.values(companies).flat().find(name => name === "Infinite Tiers");
+
 
 console.log(bestCompany); 
