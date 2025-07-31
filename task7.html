@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+   <style>
+   
+    #myBox {
+      width: 200px;
+      height: 200px;
+      background-color: green;
+      position: relative; 
+      transition: 2s; 
+    }
+
+  
+    .move {
+      transform: translateX(200px); 
+    }
+  </style>
+
+</head>
+<body>
+
+  <div id="myBox"></div>
+  <br>
+  <button onclick="moveBox()">Move</button>
+
+  <script>
+    function moveBox() {
+      const box = document.getElementById("myBox");
+      box.classList.toggle("move"); 
+    }
+  </script>
+
+</body>
+</html>
