@@ -1,0 +1,68 @@
+body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f0f0f0;
+    }
+
+    .face {
+      width: 120px;
+      height: 120px;
+      background-color: #3498db; /* أزرق */
+      border-radius: 50%;
+      position: relative;
+      animation: bounce 1s infinite ease-in-out;
+    }
+
+    .eye {
+      width: 30px;
+      height: 30px;
+      background: white;
+      border-radius: 50%;
+      position: absolute;
+      top: 30px;
+    }
+
+    .eye::after {
+      content: '';
+      width: 15px;
+      height: 15px;
+      background: black;
+      border-radius: 50%;
+      position: absolute;
+      top: 7px;
+      left: 7px;
+    }
+
+    .eye.left {
+      left: 25px;
+    }
+
+    .eye.right {
+      right: 25px;
+    }
+
+    .mouth {
+      width: 30px;
+      height: 10px;
+      border-radius: 0 0 15px 15px;
+      background: black;
+      position: absolute;
+      bottom: 25px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(30px);
+      }
+    }
+
+
+    
+  
