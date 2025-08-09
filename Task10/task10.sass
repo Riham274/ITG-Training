@@ -1,0 +1,36 @@
+.hamburger
+  width: 35px
+  height: 30px
+  position: relative
+  cursor: pointer
+
+  span
+    background: #000
+    height: 4px
+    width: 100%
+    position: absolute
+    left: 0
+    transition: 0.4s
+    border-radius: 2px
+
+    &:nth-child(1)
+      top: 0
+
+    &:nth-child(2)
+      top: 13px
+
+    &:nth-child(3)
+      bottom: 0
+
+  &.active
+    span
+      &:nth-child(1)
+        transform: rotate(45deg)
+        top: 13px
+
+      &:nth-child(2)
+        opacity: 0
+
+      &:nth-child(3)
+        transform: rotate(-45deg)
+        bottom: 13px
