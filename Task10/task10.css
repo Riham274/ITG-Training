@@ -4,6 +4,7 @@
   position: relative;
   cursor: pointer;
 }
+
 .hamburger span {
   background: black;
   height: 4px;
@@ -13,22 +14,28 @@
   transition: 0.4s;
   border-radius: 2px;
 }
+
 .hamburger span:nth-child(1) {
   top: 0;
 }
+
 .hamburger span:nth-child(2) {
   top: 13px;
 }
+
 .hamburger span:nth-child(3) {
   bottom: 0;
 }
+
 .hamburger.active span:nth-child(1) {
   transform: rotate(45deg);
   top: 13px;
 }
+
 .hamburger.active span:nth-child(2) {
   opacity: 0;
 }
+
 .hamburger.active span:nth-child(3) {
   transform: rotate(-45deg);
   bottom: 13px;
