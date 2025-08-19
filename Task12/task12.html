@@ -7,7 +7,7 @@
 </head>
 <body>
 
-    <table>
+    <table id="shoes-table">
         <thead>
             <tr>
                 <th>Size\color</th>
@@ -21,6 +21,21 @@
 
         </tbody>
     </table>
+
+    <script>
+        const tableBody = document.querySelector("shoes-table tbody");
+        fetch('shoes.json').then(response => response.json()).then(table => {
+            const tbody = '';
+
+            for (const size in table) {
+                 tbody += `<tr>`;
+                 tbody += `<td> ${size} </td>`;
+
+                                       
+                }
+            }
+        )
+    </script>
 
     
 </body>
