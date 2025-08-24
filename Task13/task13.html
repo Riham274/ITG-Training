@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+    body {
+        background-color:black;
+        color:white;
+        font-family: sans-serif;
+        padding: 50px;
+    }
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 40px;
+    }
+
+    #searchBox {
+        width: 300px;
+        height: 30px;
+       
+    }
+
+    #searchBtn {
+      height: 35px;
+    } 
+  
+    .result a {
+        color: #1e90ff;
+        text-decoration: none;
+       
+    }
+
+</style>
+
+</head>
+<body>
+    <div class="container">
+    <input id="searchBox" type="text">
+    <button id="searchBtn">Search</button>
+    </div>
+    <div id="results"></div>
+    
+</body>
+</html>
+
+<script>
+    $(document).ready(function() {
+        $("#searchBtn").click(function(){ 
+            let name = $("#searchBox").val();
+            $.ajax({
+                url: "https://en.wikipedia.org/w/api.php",
+                dataType: "jsonp",
+                data: {
+                    action: "opensearch",
+                    format: "json",
+                    search: name
+                },
+                success: function(data) {
+                    const titles = data[1];
+                    const descriptions = data[2];
+                    const links = data[3];
+                   
+
+
+                    for(let i=0; i< titles.length; i++){
+                        $("#results").append(
+                            `<div class="result">
+                                <a href="${links[i]}">${titles[i]}</a>
+                              
+                                </div>`
+                        );
+                    }
+                }
+
+            })
+
+        }
+        )
+    }
+    )
+</script>
