@@ -1,37 +1,49 @@
-body{
+body 
   background-color: white
   display: flex
   justify-content: center
   align-items: center
   height: 100vh
-  font-family: Georgia
+  font-family: Georgi
   font-style: italic
-}
 
-.container{
+.container 
   width: 85%
   height: 65%
-  background-image: url("R.jpg")  
-  background-size: cover
   border-radius: 20px
-}
+  overflow: hidden
+  position: relative
+  background-image: url("R.jpg")
+  background-size: cover
+  
+  
+ 
+  &::before 
+    content: ""
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    backdrop-filter: blur(12px)
+    -webkit-backdrop-filter: blur(12px)
+  
 
-.container2{
+.container2 
+  position: absolute
   width: 100%
   height: 100%
-  background-color: rgba(255, 255, 255, 0.7)   
-  flex-direction: column
   display: flex
+  flex-direction: column
   align-items: center
   justify-content: center
-}
+  color: white
 
-h1{
+h1 
   font-size: 30px
-  font-weight: bold
   margin-bottom: 0
-}
 
-p{
-    font-size: 13px
-}
+p 
+  font-size: 13px
+
+
