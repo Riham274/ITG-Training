@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <style>
+    body {
+      font-family: monospace; 
+      padding: 20px;
+    }
+    #info {
+      margin-top: 20px;
+      padding: 15px;
+      white-space: pre-wrap; 
+      
+    }
+  </style>
+</head>
+
+<body>
+  <input type="text" id="username" placeholder="Enter username">
+  <button id="searchBtn">Search</button>
+
+  <div id="info"></div>
+
+  <script>
+  $(document).ready(function() {
+    $("#searchBtn").on("click", function() {
+      const username = $("#username").val();
+
+      $.ajax({
+        url: `https://api.github.com/users/${username}`,
+        method: "GET",
+        success: function(data) {
+          $("#info").text(JSON.stringify(data, null, 2));
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>
