@@ -3,39 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Live Validation</title>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
   <style>
-    body {
-      padding: 20px;
-    }
+  
     input { 
       display: block; 
-      margin-bottom: 5px; 
       padding: 8px; 
       width: 300px; 
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 10px;
     }
     .error { 
       color: red; 
-      font-size: 0.9em; 
       margin-bottom: 10px; 
+      display: block;
+    }
+    .invalid {
+      border-color: red ;
+      
+    }
+    .invalid-label {
+      color: red ; 
+    
+
     }
   </style>
-
-  
 </head>
 
 <body>
   <form id="form">
     <div class="form-group">
-      <label>Email:</label>
+      <label for="email" id="emailLabel">Email:</label>
       <input type="text" name="email" id="email">
       <span class="error" id="emailError"></span>
     </div>
 
     <div class="form-group">
-      <label>Password:</label>
+      <label for="password" id="passwordLabel">Password:</label>
       <input type="password" name="password" id="password">
       <span class="error" id="passwordError"></span>
     </div>
@@ -47,52 +54,69 @@
     $(document).ready(function () {
       const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-      $("#form").on("submit", function (e) {
-        e.preventDefault();
-
-        $("#emailError").text("");
-        $("#passwordError").text("");
-
+      $("#email").on("input", function () {
         let email = $("#email").val();
-        let pass = $("#password").val();
-
-        if (email === "") {
-          $("#emailError").text("Please enter your email");
-          return;
-        }
+        let errorMsg = "";
 
         if (!validEmail.test(email)) {
-          $("#emailError").text("Please enter a valid email");
-          return;
+          errorMsg = "Please enter a valid email";
         }
+
+        if (errorMsg) {
+          $("#emailError").text(errorMsg);
+          $("#email").addClass("invalid");
+          $("#emailLabel").addClass("invalid-label");
+        } 
+        else {
+          $("#emailError").text("");
+          $("#email").removeClass("invalid");
+          $("#emailLabel").removeClass("invalid-label");
+        }
+      });
+
+     
+      $("#password").on("input", function () {
+        let pass = $("#password").val();
+        let errorMsg = "";
 
         if (pass.length < 8) {
-          $("#passwordError").text("Password must be 8 characters at least");
-          return;
+          errorMsg = "Password must be 8 characters at least";
+        } 
+
+        else if (!/[A-Z]/.test(pass)) {
+          errorMsg = "Please enter one capital letter at least";
+        } 
+
+        else if (!/[a-z]/.test(pass)) {
+          errorMsg = "Please enter one small letter at least";
+        } 
+
+        else if (!/[0-9]/.test(pass)) {
+          errorMsg = "Please enter one digit at least";
+        } 
+
+        else if (!/[^A-Za-z0-9]/.test(pass)) {
+          errorMsg = "Please enter one special character at least";
         }
 
-        if (!/[A-Z]/.test(pass)) {
-          $("#passwordError").text("Please enter one capital letter at least");
-          return;
+        if (errorMsg) {
+          $("#passwordError").text(errorMsg);
+          $("#password").addClass("invalid");
+          $("#passwordLabel").addClass("invalid-label");
+        } 
+        else {
+          $("#passwordError").text("");
+          $("#password").removeClass("invalid");
+          $("#passwordLabel").removeClass("invalid-label");
         }
+      });
 
-        if (!/[a-z]/.test(pass)) {
-          $("#passwordError").text("Please enter one small letter at least");
-          return;
+      
+      $("#form").on("submit", function (e) {
+        e.preventDefault();
+        if ($("#emailError").text() === ""   &&    $("#passwordError").text() === "") {
+          alert("Form submitted successfully!");
         }
-
-        if (!/[0-9]/.test(pass)) {
-          $("#passwordError").text("Please enter one digit at least");
-          return;
-        }
-
-        if (!/[^A-Za-z0-9]/.test(pass)) {
-          $("#passwordError").text("Please enter one special character at least");
-          return;
-        }
-
-        alert("Form submitted successfully!");
-         
       });
     });
   </script>
