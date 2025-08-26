@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <style>
     body {
       font-family:sans-serif;
@@ -29,25 +31,22 @@
   <div id="container"></div>
 
   <script>
-    fetch('data.json')
-      .then(response => response.json())
-      .then(data => {
-        const container = document.getElementById('container');
+    $.getJSON('data.json', function(data) {
+    const container = $('#container'); 
 
-        data.forEach(value => {
-          const card = document.createElement('div');
-          card.className = 'card';
-
-          card.innerHTML = `
+    $.each(data, function(index, value) {
+        const card = $('<div class="card"></div>'); 
+        card.html(`
             <h3>${value.name}</h3>
             <h4>${value.shortname}</h4>
             <p>${value.reknown}</p>
             <p>${value.bio}</p>
-          `;
+        `);
 
-          container.appendChild(card);
-        });
-      })
+        container.append(card); 
+    });
+});
+
   </script>
 
 </body>
