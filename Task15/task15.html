@@ -35,7 +35,7 @@
         url: `https://api.github.com/users/${username}`,
         method: "GET",
         success: function(data) {
-          $("#info").text(JSON.stringify(data, null, 2));
+          $("#info").text(JSON.stringify(data));
         }
       });
     });
