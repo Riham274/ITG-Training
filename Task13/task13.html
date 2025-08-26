@@ -41,8 +41,8 @@
 </head>
 <body>
     <div class="container">
-    <input id="searchBox" type="text">
-    <button id="searchBtn">Search</button>
+    <input id="searchBox" type="text" placeholder="Search...">
+   
     </div>
     <div id="results"></div>
     
@@ -51,8 +51,24 @@
 
 <script>
     $(document).ready(function() {
-        $("#searchBtn").click(function(){ 
+         let typingTimer;
+         
+
+        $("#searchBox").on("input", function(){ 
+            clearTimeout(typingTimer); 
             let name = $("#searchBox").val();
+
+             if(name.length >= 3){ 
+               typingTimer = setTimeout(function() {
+                 searchFun(name);
+            }, 3000);
+            
+        }   else {
+            $("#results").empty(); 
+        } 
+
+
+        function searchFun(name) {
             $.ajax({
                 url: "https://en.wikipedia.org/w/api.php",
                 dataType: "jsonp",
@@ -72,13 +88,13 @@
                         $("#results").append(
                             `<div class="result">
                                 <a href="${links[i]}">${titles[i]}</a>
-                                <p>${descriptions[i]}</p>
                                 </div>`
                         );
                     }
                 }
 
             })
+        }
 
         }
         )
