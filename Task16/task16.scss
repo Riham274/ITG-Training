@@ -1,47 +1,46 @@
-.carousel-container {
-  width: 90%;
+.container {
+  width: 80%;
   margin: auto;
   text-align: center;
+  font-family: 'Times New Roman', Times, serif;
 
   select {
-    margin-bottom: 10px;
-    padding: 5px 10px;
+    margin-bottom: 15px;
+    font-family: 'Times New Roman', Times, serif;
+    cursor: pointer;
+    border: none;
+    background-color: #F0F0F0;
+    border-radius: 6px;
+    padding: 9px 10px;
+    font-size: 15px;
   }
 
-  .carousel-wrapper {
-    overflow: hidden;
-  }
+  .wrapper {
+    //overflow: hidden;
 
-  .carousel-track {
-    display: flex;
-    transition: transform 0.4s ease;
-    cursor: grab;
+    .moving-wrapper {
+      display: flex;
 
-    img {
-      flex: 0 0 auto;
-      width: 33.3333%;
-      user-select: none;
+      img {
+        width: 33%;
+        margin: 0 5px;
+        border-radius: 15px;
+      }
     }
   }
 
-
-  .carousel-buttons {
-    margin-top: 15px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+  .buttons {
+    margin-top: 18px;
 
     button {
-      background: #333;
-      color: #fff;
-      border: none;
-      padding: 10px 20px;
+      font-family: 'Times New Roman', Times, serif;
       cursor: pointer;
+      border: none;
+      padding: 9px 13px;
       border-radius: 6px;
-      transition: 0.3s;
 
       &:hover {
-        background: #5554;
+        background-color: #5554;
       }
     }
   }
