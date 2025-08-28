@@ -1,0 +1,48 @@
+.carousel-container {
+  width: 90%;
+  margin: auto;
+  text-align: center;
+
+  select {
+    margin-bottom: 10px;
+    padding: 5px 10px;
+  }
+
+  .carousel-wrapper {
+    overflow: hidden;
+  }
+
+  .carousel-track {
+    display: flex;
+    transition: transform 0.4s ease;
+    cursor: grab;
+
+    img {
+      flex: 0 0 auto;
+      width: 33.3333%;
+      user-select: none;
+    }
+  }
+
+
+  .carousel-buttons {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+    button {
+      background: #333;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: 0.3s;
+
+      &:hover {
+        background: #5554;
+      }
+    }
+  }
+}
