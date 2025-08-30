@@ -1,0 +1,36 @@
+.container {
+  width: 60%;
+  margin: 70px 200px 50px 150px;
+}
+.container .progress-bar {
+  height: 30px;
+  background: #eee;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+.container .progress-bar .progress {
+  height: 100%;
+  width: 0%;
+  background: #166b96;
+  border-radius: 20px;
+  transition: 0.2s ease-in-out;
+}
+.container .progress-controller {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.container .progress-controller .btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.container .progress-controller .btn.btn-primary {
+  background: #166b96;
+  color: white;
+}
+.container .progress-controller .btn.btn-primary:hover {
+  background: #12597a;
+}/*# sourceMappingURL=task17.css.map */
