@@ -1,5 +1,5 @@
 .container {
-  width: 80%;
+  width: 90%;
   margin: auto;
   text-align: center;
   font-family: "Times New Roman", Times, serif;
@@ -14,8 +14,12 @@
   padding: 9px 10px;
   font-size: 15px;
 }
+.container .wrapper {
+  overflow: hidden;
+}
 .container .wrapper .moving-wrapper {
   display: flex;
+  transition: 1s;
 }
 .container .wrapper .moving-wrapper img {
   width: 33%;

@@ -1,5 +1,5 @@
 .container {
-  width: 80%;
+  width: 90%;
   margin: auto;
   text-align: center;
   font-family: 'Times New Roman', Times, serif;
@@ -16,10 +16,11 @@
   }
 
   .wrapper {
-    //overflow: hidden;
+    overflow: hidden;
 
     .moving-wrapper {
       display: flex;
+      transition: 1s;
 
       img {
         width: 33%;
