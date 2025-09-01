@@ -51,10 +51,9 @@
 <script>
     $(document).ready(function() {
          let typingTimer;
-         
 
         $("#searchBox").on("input", function(){ 
-            clearTimeout(typingTimer); 
+            clearTimeout(typingTimer); //search
             let name = $("#searchBox").val();
 
              if(name.length >= 3){ 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Live Validation</title>
+  <title>document</title>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
   <style>
@@ -79,11 +79,7 @@
         let pass = $("#password").val();
         let errorMsg = "";
 
-        if (pass.length < 8) {
-          errorMsg = "Password must be 8 characters at least";
-        } 
-
-        else if (!/[A-Z]/.test(pass)) {
+        if (!/[A-Z]/.test(pass)) {
           errorMsg = "Please enter one capital letter at least";
         } 
 
@@ -97,6 +93,10 @@
 
         else if (!/[^A-Za-z0-9]/.test(pass)) {
           errorMsg = "Please enter one special character at least";
+        }
+        
+        else if (pass.length < 8) {
+          errorMsg = "Password must be 8 characters at least";
         }
 
         if (errorMsg) {
@@ -113,7 +113,7 @@
 
       
       $("#form").on("submit", function (e) {
-        e.preventDefault();
+        
         if ($("#emailError").text() === ""   &&    $("#passwordError").text() === "") {
           alert("Form submitted successfully!");
         }

@@ -1,23 +1,23 @@
 $(document).ready(function() {
-  const $track = $('.moving-wrapper');   // العنصر اللي يحتوي الصور
-  const $images = $track.children('img'); // كل الصور
+  const $track = $('.moving-wrapper');  
+  const $images = $track.children('img'); 
   const $nextBtn = $('.next');
   const $backBtn = $('.back');
   const $select = $('#images-view');
 
-  let imagesPerView = $select.val(); // عدد الصور المعروضة
-  let currentIndex = 0; //مؤشر الصورة الأولى التي يتم عرضها حالياً (مبدئياً 0 أي الصورة الأولى).
+  let imagesPerView = $select.val(); 
+  let currentIndex = 0; 
 
-  // تحديث عرض الصور حسب العدد المختار
+  
   function updateWidth() {
-    const width = 100 / imagesPerView; // كل صورة تاخذ نسبة معينة
+    const width = 100 / imagesPerView; 
     $images.css('width', width + '%');
 
   }
 
-  // تحريك الكاروسيل
+ 
   function move(index) {
-    const maxIndex = $images.length - imagesPerView; //مثال: عندك 6 صور و3 تظهر → أقصى index = 6 - 3 = 3.
+    const maxIndex = $images.length - imagesPerView; 
     if (index < 0) {
         index = 0;
     }
@@ -25,31 +25,32 @@ $(document).ready(function() {
         index = maxIndex;
     }
     else{
-     currentIndex = index; //الصورة الأولى التي يتم عرضها حاليا. current
+     currentIndex = index;
     }
 
     const translateX = -(100 / imagesPerView) * index;
     $track.css({
-      'transform': 'translateX(' + translateX + '%)',
+      'transform': 'translateX(calc(' + translateX + '% + 20px))',
       
     });
   }
 
-  // زر Next
   $nextBtn.click(function() {
     move(currentIndex + 1);
   });
 
-  // زر Back
+
   $backBtn.click(function() {
     move(currentIndex - 1);
   });
 
-  // تغيير عدد الصور من الـ select
+ 
   $select.change(function() {
     imagesPerView = $select.val();
     updateWidth();
   });
 
- updateWidth();
+
 });
+
+
