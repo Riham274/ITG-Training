@@ -8,14 +8,12 @@ $(document).ready(function() {
   let imagesPerView = $select.val(); 
   let currentIndex = 0; 
 
-  
   function updateWidth() {
     const width = 100 / imagesPerView; 
     $images.css('width', width + '%');
 
   }
 
- 
   function move(index) {
     const maxIndex = $images.length - imagesPerView; 
     if (index < 0) {
@@ -30,7 +28,7 @@ $(document).ready(function() {
 
     const translateX = -(100 / imagesPerView) * index;
     $track.css({
-      'transform': 'translateX(calc(' + translateX + '% + 20px))',
+      'transform': 'translateX(' + translateX + '%)',
       
     });
   }
@@ -49,8 +47,6 @@ $(document).ready(function() {
     imagesPerView = $select.val();
     updateWidth();
   });
-
-
 });
 
 

@@ -18,13 +18,11 @@ $(document).ready(function () {
     }
   });
 
- 
   $("#stop").click(function () {
     clearInterval(interval);
     interval = null;
   });
 
- 
   $("#reset").click(function () {
     clearInterval(interval);
     interval = null;
