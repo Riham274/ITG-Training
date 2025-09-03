@@ -9,7 +9,7 @@ $(document).ready(function() {
   let currentIndex = 0; 
 
   function updateWidth() {
-    const width = 100 / imagesPerView; 
+    const width = (100 / imagesPerView) ; 
     $images.css('width', width + '%');
 
   }
@@ -25,10 +25,10 @@ $(document).ready(function() {
     else{
      currentIndex = index;
     }
-
-    const translateX = -(100 / imagesPerView) * index;
+    //width: calc((100% - (10px * (3 - 1))) / 3);
+    const translateX = -((100 / imagesPerView)) * index;
     $track.css({
-      'transform': 'translateX(' + translateX + '%)',
+      'transform': 'translateX(' + translateX  + '%)',
       
     });
   }
