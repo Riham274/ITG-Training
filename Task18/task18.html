@@ -9,23 +9,25 @@
     <script src="task18.js"></script>
 </head>
 <body>
- <div class="container">
-    <input type="password" id="password" placeholder="Enter your password" aria-label="Password field">
-]
-    <div class="progress">
-      <div id="progress-bar"></div>
+  <div class="container">
+    <input type="password" id="password" placeholder="Enter password...">
+
+    <div class="progress-bar">
+      <div class="progress"></div>
     </div>
 
-    <p id="feedback">Strength: </p>
+    <p id="strength">Strength : None</p>
+    <p id="length">Lenght : 0</p>
 
-    <ul class="indicators">
-      <li id="lower"><input type="checkbox" disabled> Lowercase letter</li>
-      <li id="upper"><input type="checkbox" disabled> Uppercase letter</li>
-      <li id="number"><input type="checkbox" disabled> Number</li>
-      <li id="special"><input type="checkbox" disabled> Special character</li>
+    <ul id="indicators">
+      <li id="lowercase">Lowercase : <span class="check">✗</span></li>
+      <li id="uppercase">Uppercase : <span class="check">✗</span></li>
+      <li id="number">Number : <span class="check">✗</span></li>
+      <li id="special">Special character : <span class="check">✗</span></li>
     </ul>
 
-    <p id="char-count">Characters: 0</p>
+
   </div>
+
 </body>
 </html>
