@@ -2,8 +2,8 @@ $(document).ready(function() {
     $('#password').on('input', function(){
         let value = $('#password').val();
         let score = 0;
-        let strength = "None";
-        let color = "grey";
+       // let strength = "None";
+        // let color = "grey";
 
         score += Math.min(Math.floor(value.length / 4), 4);
 
@@ -47,9 +47,15 @@ $(document).ready(function() {
 
 
        function update(id , condition) {
-        let mark = condition ? "✓" : "✗";
-        let color = condition ? "green" : "red";
-        $(id + " .check").text(mark).css("color", color);
+        let icon = $(id).find("i");
+        if(condition){
+            icon.removeClass("fa-xmark").addClass("fa-check").css("color", "green");
+        }
+        else {
+            icon.removeClass("fa-check").addClass("fa-xmark").css("color", "red");
+
+
+        }
        }
 
 
