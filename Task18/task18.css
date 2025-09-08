@@ -1,62 +1,22 @@
 body {
-  font-family: Georgia, "Times New Roman", Times, serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  font-family: "Georgia", "Times New Roman", Times, serif;
   background-color: #f4f4f4;
 }
 
-.container {
-  background-color: white;
-  padding: 20px;
+.card {
   border-radius: 12px;
-  width: 300px;
-  box-shadow: 5px 5px 5px rgb(199, 198, 198);
 }
 
-h3 {
-  text-align: center;
-}
-
-input {
-  width: 100%;
-  height: 30px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  font-family: Georgia, "Times New Roman", Times, serif;
-  padding-left: 5px;
-  margin-bottom: 18px;
-}
-
-.progress-bar {
-  background-color: #ddd;
-  height: 10px;
+.progress {
   border-radius: 6px;
-  overflow: hidden;
 }
-.progress-bar .progress {
-  height: 100%;
-  width: 0%;
-  transition: 0.3s;
+.progress .progress-bar {
+  transition: width 0.3s ease-in-out;
 }
 
-#strength, #length {
-  font-weight: bold;
+.list-group-item {
+  border-bottom: 1px solid #ddd;
 }
-
-#indicators {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-#indicators li {
-  display: flex;
-  justify-content: space-between;
-  margin: 10px 0;
-  border-bottom: 1px solid rgb(221, 221, 221);
-}
-#indicators li i {
-  color: red;
+.list-group-item i {
   font-size: 20px;
 }/*# sourceMappingURL=task18.css.map */
